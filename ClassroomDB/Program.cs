@@ -125,11 +125,30 @@ namespace ClassroomDB
         {
             ClassContext context = new ClassContext();
             Console.WriteLine("Pick a student ID");
-            int input = (int)Validator.Validator.GetNumber(1, 13);
+            int input = (int)Validator.Validator.GetNumber(1, context.students.Count());
 
             Student s = context.students.Where(student => student.StudentID == input).First();
 
             Console.WriteLine($"{s.Food}, {s.Hometown}");
         }
+
+        //using a method, would need to bring previously created arrays in as well.
+        //public static List<Student> GetList(string[] name, string[] hometown, string[] food)
+        //{
+        //    List<Student> StudentList = new List<Student>();
+        //    for (int i = 0; i < name.Length; i++)
+        //    {
+        //        StudentList.Add(new Student(name[i], hometown[i], food[i]));
+
+
+        //    }
+
+        //    return StudentList;
+
+
+        //}
+        //List<Student> StudentList = new List<Student>();
+        //StudentList = GetList(names, hometown, foods);
+
     }
 }
